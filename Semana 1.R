@@ -62,7 +62,7 @@ ch4
 ch4 = paste(ch1,ch2,ch3,sep=".")
 ch4
 
-# b - Usando a fun¸c˜ao paste a partir de ch1, ch2 e ch3 crie um quinto objeto da classe "character", ch5, definido por “abc”.
+# b - Usando a função paste a partir de ch1, ch2 e ch3 crie um quinto objeto da classe "character", ch5, definido por “abc”.
 ch5 = paste(ch1,ch2,ch3,sep="")
 ch5
 
@@ -72,8 +72,8 @@ ch4==ch5
 # d - Usando o comando != verifique se ch4 e ch5 s˜ao iguais ou diferentes.
 ch4!=ch5
 
-# Q3 - O operador %% fornece o resto da divis˜ao entre dois n´umeros, por exemplo, 15%%4 fornece o resto da divis˜ao de 15 por 4, que ´e 3. Esse comando ser´a bastante usado 
-# durante o curso. Fa¸ca os itens a seguir primeiros no papel e depois verifique a resposta usando o R.
+# Q3 - O operador %% fornece o resto da divisão entre dois números, por exemplo, 15%%4 fornece o resto da divisão de 15 por 4, que é 3.
+# Esse comando será bastante usado durante o curso. Faça os itens a seguir primeiros no papel e depois verifique a resposta usando o R.
 
 # a - Qual a resposta para 18%%5, -5%%2, 15%%5 e 8.3%%3?
 18%%5
