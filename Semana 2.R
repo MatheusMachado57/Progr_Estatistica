@@ -304,15 +304,19 @@ for(i in 1:100){
 }
 x
 
-# 2.9
-# a
+# 2.9 - A famosa sequência de Fibonacci é definida da seguinte maneira: 
+# os dois primeiros elementos são iguais a [1, 1] e a partir do terceiro elemento cada termo da sequência
+# é definido como a soma dos dois termos anteriores. 
+# Por exemplo, o terceiro termo é 2 (= 1 + 1), o quarto termo é 3 (= 1 + 2), o quinto termo é 5 (= 2 + 3) e assim por diante.
+
+# a - Faça um c´odigo em R para encontrar os 12 primeiros números da sequência de Fibonacci.
 F = c(1,1)
 for(i in 3:12){
   F[i] = F[i-1] + F[i-2]
 }
 F
 
-# b
+# b - Faça um código em R para encontrar todos os números da sequência de Fibonacci menores que 300.
 F = c(1,1)
 i = 2
 repeat{
@@ -323,7 +327,8 @@ repeat{
 }
 F
 
-# c
+# c - Fa¸ca um código em R que determine o número de termos da sequência de Fibonacci menores que 1.000.000. 
+# Veja que nesse caso você não precisa (e nem deve!) guardar os termos da sequência, apenas precisa contar o número de elementos.
 F1 = 1
 F2 = 1
 n  = 2
