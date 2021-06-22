@@ -1,7 +1,7 @@
 # Semana 5
-# Q1
+# Q1 - Implemente uma função que recebe como entrada um vetor v e um escalar α e retorna o vetor αv.
 Mult_vet_esc = function(v,alpha){
-  if(class(v)!="numeric") stop("O primeiro argumento precisa ser um vetor num�rico.")
+  if(class(v)!="numeric") stop("O primeiro argumento precisa ser um vetor numérico.")
   if( (class(alpha)!="numeric") || (length(alpha)>1) ) stop("O segundo argumento precisa ser um escalar.")
   n = length(v)
   w = NULL
@@ -11,9 +11,9 @@ Mult_vet_esc = function(v,alpha){
 Mult_vet_esc( c(1,2,3,4), 2)
 Mult_vet_esc( 2, c(1,2,3,4))
 
-# Q2
+# Q2 - Implemente uma função que recebe como entrada dois vetores v e u e retorna outro vetor definido pela soma entre eles.
 Soma_2_vet = function(v,u){
-  if( (class(v)!="numeric") || (class(u)!="numeric") )stop("Os argumentos precisam ser vetores num�ricos.")
+  if( (class(v)!="numeric") || (class(u)!="numeric") )stop("Os argumentos precisam ser vetores numéricos.")
   n = length(v)
   m = length(u)
   if(n!=m)stop("Os vetores precisam ter o mesmo tamanho.")
@@ -25,24 +25,26 @@ Soma_2_vet( c(1,2,3,4), 2)
 Soma_2_vet( c(-1,-2,-3,-4), c(1,2,3,4))
 
 # Q3
-# a
-# Entrada: 2 vetores num�ricos, v e u
-# Sa�da: o vetor w = v-u
-# 1 Verifique se v e u s�o vetores num�ricos. Caso contr�rio, pare o programa retornando uma mensagem de erro.
+# a - No caderno escreva um pseudo-código para o algoritmo que recebe como entrada
+# dois vetores v e u e retorna outro vetor definido pela subtração do primeiro pelo segundo.
+
+# Entrada: 2 vetores numéricos, v e u
+# Saída: o vetor w = v-u
+# 1 Verifique se v e u são vetores numéricos. Caso contrário, pare o programa retornando uma mensagem de erro.
 # 2 defina n como sendo o tamanho do vetor v
 # 3 defina m como sendo o tamanho do vetor u
 # 4 Se n diferente de m, retorne uma mensagem de erro e pare o programa
 # 5 Inicialize o vetor w
 # 6 Inicie i=1
-# 7 Fa�a w_i = v_i + u_i
+# 7 Faça w_i = v_i + u_i
 # 8 Incremente i: i=i+1
 # 9 Se i<=n, volte para a linha 7
 # 10 Retorne w 
 
-# b 
+# b - Agora no computador implemente o pseudo-c´odigo elaborado no item acima.
 # FORMA1
 Sub_2_vet = function(v,u){
-  if( (class(v)!="numeric") || (class(u)!="numeric") )stop("Os argumentos precisam ser vetores num�ricos.")
+  if( (class(v)!="numeric") || (class(u)!="numeric") )stop("Os argumentos precisam ser vetores numéricos.")
   n = length(v)
   m = length(u)
   if(n!=m)stop("Os vetores precisam ter o mesmo tamanho.")
@@ -65,9 +67,9 @@ Sub_2_vet = function(v,u){
 }
 Sub_2_vet(c(10,20,30),c(2,2,2))
 
-# Q4
+# Q4 - Implemente uma função que recebe como entrada dois vetores v e u e retorna o produto interno entre eles.
 Prod_int = function(v,u){
-  if( (class(v)!="numeric") || (class(u)!="numeric") )stop("Os argumentos precisam ser vetores num�ricos.")
+  if( (class(v)!="numeric") || (class(u)!="numeric") )stop("Os argumentos precisam ser vetores numéricos.")
   n = length(v)
   m = length(u)
   if(n!=m)stop("Os vetores precisam ter o mesmo tamanho.")
@@ -78,7 +80,8 @@ Prod_int = function(v,u){
 Prod_int( c(1,2,3,4), 2)
 Prod_int( c(-1,-2,-3,-4), c(1,2,3,4))
 
-# Q5
+# Q5 - Implemente uma função que recebe como entrada dois vetores e retorna TRUE caso eles forem ortogonais e FALSE caso contrário.
+# Dica: dá para saber se dois vetores são ortogonais a partir do produto interno entre eles.
 Ortog = function(v,u){
   p = Prod_int(v,u)
   if(p==0){return(TRUE)} else{return(FALSE)}
@@ -86,7 +89,7 @@ Ortog = function(v,u){
 Ortog( c(-1,-2,-3,-4), c(1,2,3,4))
 Ortog( c(1,2), c(-2,1))
 
-# Q6
+# Q6 - Implemente uma função que recebe como entrada uma matriz A e um escalar α e retorna a matriz αA.
 Mult_mat_esc = function(A,alpha){
   if(class(A)!="matrix")stop("O primeiro argumento deve ser uma matriz.")
   if( (class(alpha)!="numeric") || (length(alpha)>1) )stop("O segundo argumento deve ser um escalar.")
@@ -103,14 +106,14 @@ Mult_mat_esc = function(A,alpha){
 Mult_mat_esc( matrix(c(1,2,3,4),2,2), -3)
 Mult_mat_esc( matrix(c(1,2,3,4),2,2), "A")
 
-# Q7
+# Q7 - Implemente uma função que recebe como entrada duas matrizes A e B e retorna outra matriz definida pela soma entre elas.
 Soma_matrizes = function(A,B){
   if((class(A)!="matrix") || (class(B)!="matrix") )stop("Entre com 2 matrizes.")
   n = nrow(A)
   m = ncol(A)
   l = nrow(B)
   c = ncol(B)
-  if((l!=n)||(c!=m))stop("As 2 matrizes precisam ter o mesmo n�mero de linhas e de colunas.")
+  if((l!=n)||(c!=m))stop("As 2 matrizes precisam ter o mesmo número de linhas e de colunas.")
   M = matrix(NA,n,m)
   for(i in 1:n){
     for(j in 1:m){
@@ -122,33 +125,35 @@ Soma_matrizes = function(A,B){
 Soma_matrizes( matrix(c(1,2,3,4),2,2), matrix(c(-1,-2,-3,-4),2,2))
 
 # Q8
-# a 
-# Entrada: A e B matrizes com valores num�ricos
-# Sa�da: matriz M = A - B
-# 1 Defina n = n�mero de linhas de A
-# 2 Defina l = n�mero de linhas de B
+# a - No caderno escreva um pseudo-código para o algoritmo que recebe como entrada duas matrizes A e B e 
+# retorna outra matriz definida pela subtração da primeira pela segunda.
+
+# Entrada: A e B matrizes com valores numéricos
+# Saída: matriz M = A - B
+# 1 Defina n = número de linhas de A
+# 2 Defina l = número de linhas de B
 # 3 Se n for diferente de l, retorne uma mensagem de erro e encerre o algoritmo.
-# 4 Defina m = n�mero de colunas de A
-# 5 Defina c = n�mero de colunas de B
+# 4 Defina m = número de colunas de A
+# 5 Defina c = número de colunas de B
 # 6 Se m for diferente de c, retorne uma mensagem de erro e encerre o algoritmo.
-# 7 Crie uma matriz M de dimens�o n x m
+# 7 Crie uma matriz M de dimensão n x m
 # 8 Inicie i = 1
 # 9 Inicie j = 1
-# 10 Fa�a M_i,j = A_i,j - B_i,j sendo i a i-�sima linha e j a j-�sima coluna
+# 10 Faça M_i,j = A_i,j - B_i,j sendo i a i-ésima linha e j a j-ésima coluna
 # 11 Incremente j: j = j+1
 # 12 Se j <= m , volte para a linha 10
 # 13 Incremente i: i = i+1
 # 14 Se i <= n , volte para a linha 9
 # 15 Retorne M
 
-# b
+# b - Agora no computador implemente o pseudo-código elaborado no item acima.
 Subt_matrizes = function(A,B){
   if((class(A)!="matrix") || (class(B)!="matrix") )stop("Entre com 2 matrizes.")
   n = nrow(A)
   m = ncol(A)
   l = nrow(B)
   c = ncol(B)
-  if((l!=n)||(c!=m))stop("As 2 matrizes precisam ter o mesmo n�mero de linhas e de colunas.")
+  if((l!=n)||(c!=m))stop("As 2 matrizes precisam ter o mesmo número de linhas e de colunas.")
   M = matrix(NA,n,m)
   for(i in 1:n){
     for(j in 1:m){
@@ -159,7 +164,7 @@ Subt_matrizes = function(A,B){
 }
 Subt_matrizes( matrix(c(1,2,3,4),2,2), matrix(c(1,2,3,4),2,2))
 
-# Q9
+# Q9 - Implemente uma função que recebe como entrada uma matriz A e retorna a sua transposta.
 Transposta = function(A){
   if(class(A)!="matrix") stop("O argumento deve ser uma matriz.")
   n = nrow(A)
@@ -172,25 +177,28 @@ Transposta = function(A){
   }
   return(M)
 }
-Transposta( matrix(c(1,2,3,4),2,2))
+Transposta(matrix(c(1,2,3,4),2,2))
 
 # Q10
-# a  
-# Entrada: uma matriz A matriz com valores num�ricos
-# Sa�da: uma vari�vel l�gica sendo TRUE quando a matriz for sim�trica e FALSE, caso contr�rio
-# 1 Defina n = n�mero de linhas de A
-# 2 Defina m = n�mero de colunas de A
-# 3 Se n for diferente de m, retorne FALSE. Caso contr�rio, siga os passos abaixo.
+# a - No caderno escreva um pseudo-código para o algoritmo que recebe como entrada
+# uma matriz A e retorna T RUE se essa matriz for simétrica e FALSE caso
+# contrário. Lembre-se: uma matriz simétrica é uma matriz quadrada tal que Ai,j = Aj,i.
+ 
+# Entrada: uma matriz A matriz com valores numéricos
+# Saída: uma variável lógica sendo TRUE quando a matriz for simétrica e FALSE, caso contrário
+# 1 Defina n = número de linhas de A
+# 2 Defina m = número de colunas de A
+# 3 Se n for diferente de m, retorne FALSE. Caso contrário, siga os passos abaixo.
 # 4 Inicie i = 1
 # 5 Inicie j = i+1
-# 6 Se A_i,j for diferente de A_j,i, sendo i a i-�sima linha e j a j-�sima coluna, retorne FALSE e encerre o programa.
+# 6 Se A_i,j for diferente de A_j,i, sendo i a i-ésima linha e j a j-ésima coluna, retorne FALSE e encerre o programa.
 # 7 Incremente j: j = j+1
 # 8 Se j <= n , volte para a linha 6
 # 9 Incremente i: i = i+1
 # 10 Se i <= n-1 , volte para a linha 5
 # 11 Retorne TRUE 
 
-# b
+# b - Agora no computador implemente o pseudo-código elaborado no item acima.
 Simetrica = function(A){
   if(class(A)!="matrix") stop("O argumento deve ser uma matriz.")
   n = nrow(A)
@@ -208,14 +216,14 @@ Simetrica( matrix(c(1,2,3,4),2,2))
 Simetrica( matrix(c(0,2,3,2,0,5,3,5,0),3,3,byrow=TRUE) )
 Simetrica( matrix(c(0,2,3,2,0,5,3,15,0),3,3,byrow=TRUE) )
 
-# Q11
+# Q11 - Implemente uma função que recebe como entrada uma matriz A e um vetor v e retorna o vetor definido por Av.
 Produto_Av = function(A,v){
   if(class(A)!="matrix") stop("O primeiro argumento deve ser uma matriz.")
   if(class(v)!="numeric") stop("O segundo argumento deve ser um vetor.")
   n = nrow(A)
   m = ncol(A)
   k = length(v)
-  if(k!=m)stop("O tamanho do vetor precisa ser igual ao n�mero de colunas da matriz.")
+  if(k!=m)stop("O tamanho do vetor precisa ser igual ao número de colunas da matriz.")
   w = NULL
   for(i in 1:n){
     ai = A[i,]
@@ -225,14 +233,14 @@ Produto_Av = function(A,v){
 }
 Produto_Av( matrix(c(1,2,3,4),2,2),c(1,1))
 
-# Q12
+# Q12 - Implemente uma função que recebe como entrada duas matrizes A e B e retorna a matriz definida pelo produto entre A e B.
 Mult_matrizes = function(A,B){
   if((class(A)!="matrix") || (class(B)!="matrix") )stop("Entre com 2 matrizes.")
   n = nrow(A)
   m = ncol(A)
   l = nrow(B)
   k = ncol(B)
-  if(l!=m)stop("O n�mero de colunas da primeira matriz precisa ser igual ao n�mero de linhas da segunda matriz.")
+  if(l!=m)stop("O número de colunas da primeira matriz precisa ser igual ao número de linhas da segunda matriz.")
   M = matrix(NA,n,k)
   for(i in 1:n){
     for(j in 1:k){
@@ -246,7 +254,7 @@ Mult_matrizes = function(A,B){
 Mult_matrizes( matrix(c(1,2,3,4),2,2), matrix(c(-1,-2,-3,-4),2,2))
 matrix(c(1,2,3,4),2,2) %*% matrix(c(-1,-2,-3,-4),2,2)
 
-# Q13
+# Q13 - Considere:
 alpha = 4
 beta = -3
 v1 = c(2,-3,-1,5,0,-2)
@@ -258,6 +266,29 @@ M2 = matrix(c(0,-5,3,-1,1,-1,1,4,0),3,3,byrow=TRUE)
 M3 = matrix(c(3,1,-2,10,3,-1),3,2,byrow=TRUE)
 M4 = matrix(c(1,1,0,1),2,2,byrow=TRUE)
 M5 = matrix(c(3,1,0,1,1,1,3,2,0,3,-5,0,1,2,0,0),4,4,byrow=TRUE)
+
+# Usando as fun¸c˜oes que vocˆe implementou nos exerc´ıcios anteriores fa¸ca as contas que
+# se pede. Tente cada item usando apenas uma linha de comando no R.
+
+# (a) αv3
+# (b) v1 + v2
+# (c) v3 − v1
+# (d) < v1, v2 >
+# (e) < αv1, v2 − v1 >
+# (f) < v1 + v2, v1 − v2 >
+# (g) Os vetores v1 e v2 acima s˜ao perpendiculares (ortogonais)?
+# (h) βM1
+# (i) MT 1
+# (j) Verifique se as matrizes M1, M4 e M5 s˜ao sim´etricas.
+# (k) M1v4
+# (l) M2v4 + v4
+# (m) M1M2
+# (n) M2M1
+# (o) MT 3 
+# M2
+# (p) (M1M3) + M4
+# (q) M1M2M3
+# (r) M1M2M3 − M4
 
 Mult_vet_esc(v3,alpha)
 v3*alpha
