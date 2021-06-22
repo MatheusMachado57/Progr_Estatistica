@@ -1,8 +1,10 @@
 # Semana 7
-# Q1
+
+# Q1 - Implemente de forma recursiva uma fun√ß√£o que recebe como entrada um n√∫mero
+# natural n e retorna a soma de todos os naturais at√© n, isto √©, retorna Sn = Pn i=0 i = 0 + 1 + 2 + . . . + n.
 SomaNaturais = function(n){
-  if(class(n)!="numeric") stop("A entrada precisa ser um n˙mero.")
-  if((n%%1!=0) || (n<0)) stop("A entrada precisa ser um n˙mero natural.")
+  if(class(n)!="numeric") stop("A entrada precisa ser um n√∫mero.")
+  if((n%%1!=0) || (n<0)) stop("A entrada precisa ser um n√∫mero natural.")
   if(n==0) return(0)
   return(n+SomaNaturais(n-1))
 }
@@ -11,37 +13,37 @@ SomaNaturais(n)
 sum(1:n)
 
 # Q2
-# a
+# a - Implemente uma fun√ß√£o que recebe como entrada um n√∫mero natural n e retorna o n-√©simo termo da s√©rie Sn = Pn i=0 1 i! .
 Fatorial = function(n){
-  if( (n%%1!=0) || (n<0) || (!is.numeric(n)) )stop("o argumento precisa ser um n˙mero natural.")
+  if( (n%%1!=0) || (n<0) || (!is.numeric(n)) )stop("o argumento precisa ser um n√∫mero natural.")
   if(n==0)return(1)
   return(n*Fatorial(n-1))
 }
 
 Soma2 = function(n){
-  if(class(n)!="numeric") stop("A entrada precisa ser um n˙mero.")
-  if((n%%1!=0) || (n<0)) stop("A entrada precisa ser um n˙mero natural.")
+  if(class(n)!="numeric") stop("A entrada precisa ser um n√∫mero.")
+  if((n%%1!=0) || (n<0)) stop("A entrada precisa ser um n√∫mero natural.")
   if(n==0) return(1)
   return(1/Fatorial(n)+Soma2(n-1))
 }
 
-# b
+# b - Teste a fun√ß√£o implementada para diferentes valores de n e veja se quando n cresce Sn se aproxima de e = 2.718282...
 n=50
 Soma2(n)
 sum(  1/factorial( seq(0,n,by=1) )  )
 
 # Q3
 # a
-# Entrada: um n˙mero natural n
-# SaÌda: a soma da sÈrie S_n
-# Nome da FunÁ„o: AproxPi
-# 1 Se n n„o for um n˙mero natural, aparece uma mensagem de erro e finaliza a funÁ„o.
+# Entrada: um n√∫mero natural n
+# Sa√≠da: a soma da s√©rie S_n
+# Nome da Fun√ß√£o: AproxPi
+# 1 Se n n√£o for um n√∫mero natural, aparece uma mensagem de erro e finaliza a fun√ß√£o.
 # 2 Se n=0, retorne 4.
 # 3 Retorne 4*(-1)^n / (2*n+1) + AproxPi(n-1).
 
 # b
 AproxPi = function(n){
-  if((class(n)!="numeric") || (n%%1!=0) || (n<0)) stop("A entrada precisa ser um n˙mero natural.")
+  if((class(n)!="numeric") || (n%%1!=0) || (n<0)) stop("A entrada precisa ser um n√∫mero natural.")
   if(n==0) return(4)
   return(4*(-1)^n / (2*n+1) + AproxPi(n-1))  
 }
@@ -51,21 +53,21 @@ AproxPi(1100)
 
 # Q4
 # a
-# Entrada: um n˙mero natural n maior que zero
-# SaÌda: a soma da sequÍncia de Fibonacci
-# Nome da FunÁ„o: SomaFibonacci
-# 1 Se n n„o for um n˙mero natural maior que 0, aparece uma mensagem de erro e finaliza a funÁ„o.
+# Entrada: um n√∫mero natural n maior que zero
+# Sa√≠da: a soma da sequ√™ncia de Fibonacci
+# Nome da Fun√ß√£o: SomaFibonacci
+# 1 Se n n√£o for um n√∫mero natural maior que 0, aparece uma mensagem de erro e finaliza a fun√ß√£o.
 # 2 Se n=1, retorne 1.
-# 3 Retorne o n-Èsimo termo da sequÍncia Fibonacci + SomaFibonacci(n-1).
+# 3 Retorne o n-√©simo termo da sequ√™ncia Fibonacci + SomaFibonacci(n-1).
 
 # b
 Fibonacci = function(n){
-  if( (n%%1!=0) || (n<=0) || (class(n)!="numeric" && class(n)!="integer") )stop("o argumento precisa ser um n˙mero natural.")
+  if( (n%%1!=0) || (n<=0) || (class(n)!="numeric" && class(n)!="integer") )stop("o argumento precisa ser um n√∫mero natural.")
   if((n==1) || (n==2)){return(1)} 
   return(Fibonacci(n-1)+Fibonacci(n-2))
 }
 SomaFibonacci = function(n){
-  if( (n%%1!=0) || (n<=0) || (class(n)!="numeric" && class(n)!="integer") )stop("o argumento precisa ser um n˙mero natural maior que 0.")
+  if( (n%%1!=0) || (n<=0) || (class(n)!="numeric" && class(n)!="integer") )stop("o argumento precisa ser um n√∫mero natural maior que 0.")
   if(n==1) {return(1)} 
   return(SomaFibonacci(n-1) + Fibonacci(n))  
 }
@@ -77,16 +79,16 @@ soma
 
 # Q5
 # a
-# Entrada: um n˙mero natural n 
-# SaÌda: a soma da sequÍncia S_n
-# Nome da FunÁ„o: Soma_75
-# 1 Se n n„o for um n˙mero natural, aparece uma mensagem de erro e finaliza a funÁ„o.
+# Entrada: um n√∫mero natural n 
+# Sa√≠da: a soma da sequ√™ncia S_n
+# Nome da Fun√ß√£o: Soma_75
+# 1 Se n n√£o for um n√∫mero natural, aparece uma mensagem de erro e finaliza a fun√ß√£o.
 # 2 Se n=0, retorne 1.
 # 3 Retorne 1/(3^n) + Soma_75(n-1).
 
 # b
 Soma_75 = function(n){
-  if( (n%%1!=0) || (n<0) || (class(n)!="numeric" && class(n)!="integer") )stop("o argumento precisa ser um n˙mero natural.")
+  if( (n%%1!=0) || (n<0) || (class(n)!="numeric" && class(n)!="integer") )stop("o argumento precisa ser um n√∫mero natural.")
   if(n==0) return(1)
   return(1/(3^n)+Soma_75(n-1))
 }
@@ -96,8 +98,8 @@ sum( 1 / (3^seq(0,n,by=1)) )
 
 # c
 Soma_ab = function(x,y){
-  if( (y%%1!=0) || (y<0) || (class(y)!="numeric" && class(y)!="integer") )stop("o argumento precisa ser um n˙mero natural.")
-  if( (x%%1!=0) || (x<0) || (class(x)!="numeric" && class(x)!="integer") )stop("o argumento precisa ser um n˙mero natural.")
+  if( (y%%1!=0) || (y<0) || (class(y)!="numeric" && class(y)!="integer") )stop("o argumento precisa ser um n√∫mero natural.")
+  if( (x%%1!=0) || (x<0) || (class(x)!="numeric" && class(x)!="integer") )stop("o argumento precisa ser um n√∫mero natural.")
   a = min(x,y)
   b = max(x,y)
   if(a==b) return(1/(3^a))
@@ -110,8 +112,8 @@ sum( 1 / (3^seq(a,b,by=1)) )
 
 # caso a<b, ou seja, a tem que ser diferente e menor que b:
 Soma_ab2 = function(x,y){
-  if( (y%%1!=0) || (y<0) || (class(y)!="numeric" && class(y)!="integer") )stop("o argumento precisa ser um n˙mero natural.")
-  if( (x%%1!=0) || (x<0) || (class(x)!="numeric" && class(x)!="integer") )stop("o argumento precisa ser um n˙mero natural.")
+  if( (y%%1!=0) || (y<0) || (class(y)!="numeric" && class(y)!="integer") )stop("o argumento precisa ser um n√∫mero natural.")
+  if( (x%%1!=0) || (x<0) || (class(x)!="numeric" && class(x)!="integer") )stop("o argumento precisa ser um n√∫mero natural.")
   a = min(x,y)
   b = max(x,y)
   if(b==(a+1)) return(1/(3^a) + 1/(3^b))
@@ -124,16 +126,16 @@ sum( 1 / (3^seq(a,b,by=1)) )
 
 # Q6
 # a
-# Entrada: um n˙mero natural n 
-# SaÌda: o termo da sequÍncia f(n)=2^n
-# Nome da FunÁ„o: Termo
-# 1 Se n n„o for um n˙mero natural, aparece uma mensagem de erro e finaliza a funÁ„o.
+# Entrada: um n√∫mero natural n 
+# Sa√≠da: o termo da sequ√™ncia f(n)=2^n
+# Nome da Fun√ß√£o: Termo
+# 1 Se n n√£o for um n√∫mero natural, aparece uma mensagem de erro e finaliza a fun√ß√£o.
 # 2 Se n=0, retorne 1.
 # 3 Retorne 2 * Termo(n-1).
 
 # b
 Termo = function(n){
-  if( (n%%1!=0) || (n<0) || (class(n)!="numeric" && class(n)!="integer") )stop("o argumento precisa ser um n˙mero natural.")
+  if( (n%%1!=0) || (n<0) || (class(n)!="numeric" && class(n)!="integer") )stop("o argumento precisa ser um n√∫mero natural.")
   if(n==0) return(1) 
   return(2 * Termo(n-1))
 }
@@ -143,18 +145,18 @@ Termo(n)
 
 # Q7
 # a
-# Entrada: um n˙mero natural n e um n˙mero real x
-# SaÌda: o termo da sequÍncia f(n)=x^n
-# Nome da FunÁ„o: Termox
-# 1 Se n n„o for um n˙mero natural, aparece uma mensagem de erro e finaliza a funÁ„o.
-# 2 Se x n„o for um n˙mero, aparece uma mensagem de erro e finaliza o programa.
+# Entrada: um n√∫mero natural n e um n√∫mero real x
+# Sa√≠da: o termo da sequ√™ncia f(n)=x^n
+# Nome da Fun√ß√£o: Termox
+# 1 Se n n√£o for um n√∫mero natural, aparece uma mensagem de erro e finaliza a fun√ß√£o.
+# 2 Se x n√£o for um n√∫mero, aparece uma mensagem de erro e finaliza o programa.
 # 3 Se n=0, retorne 1.
 # 4 Retorne x * Termox(n-1).
 
 # b
 Termox = function(n,x){
-  if( (n%%1!=0) || (n<0) || (class(n)!="numeric" && class(n)!="integer") )stop("O primeiro argumento precisa ser um n˙mero natural.")
-  if(class(x)!="numeric")stop("O segundo argumento precisa ser um n˙mero real.")
+  if( (n%%1!=0) || (n<0) || (class(n)!="numeric" && class(n)!="integer") )stop("O primeiro argumento precisa ser um n√∫mero natural.")
+  if(class(x)!="numeric")stop("O segundo argumento precisa ser um n√∫mero real.")
   if(n==0) return(1) 
   return(x * Termox(n-1,x))
 }
@@ -165,20 +167,20 @@ x^n
 
 # Q8
 # a
-# Entrada: um vetor numÈrico v
-# SaÌda: a quantidade de elementos nulos presentes no vetor v
-# Nome da FunÁ„o: QuantNulos
-# 1 Se v n„o for um vetor numÈrico, aparece uma mensagem de erro e finaliza a funÁ„o.
-# 2 FaÁa n = o comprimento do vetor v
-# 3 FaÁa soma = 0
-# 4 Se v_1 for nulo, faÁa soma = 1
-# 5 Se n=1, ent„o retorna soma.
-# 6 FaÁa w = vetor v excluindo o seu primeiro elemento
+# Entrada: um vetor num√©rico v
+# Sa√≠da: a quantidade de elementos nulos presentes no vetor v
+# Nome da Fun√ß√£o: QuantNulos
+# 1 Se v n√£o for um vetor num√©rico, aparece uma mensagem de erro e finaliza a fun√ß√£o.
+# 2 Fa√ßa n = o comprimento do vetor v
+# 3 Fa√ßa soma = 0
+# 4 Se v_1 for nulo, fa√ßa soma = 1
+# 5 Se n=1, ent√£o retorna soma.
+# 6 Fa√ßa w = vetor v excluindo o seu primeiro elemento
 # 7 Retorna soma + QuantNulos(w)
 
 # b
 QuantNulos = function(v){
-  if(class(v)!="numeric")stop("O argumento precisa ser um vetor n˙merico.")
+  if(class(v)!="numeric")stop("O argumento precisa ser um vetor n√∫merico.")
   n = length(v)
   soma = 0
   if(v[1]==0) soma = 1
@@ -192,18 +194,18 @@ length(which(v==0))
 
 # Q9
 # a
-# Entrada: um vetor numÈrico v
-# SaÌda: o vetor v na ordem inversa
-# Nome da FunÁ„o: OrdemInversa
-# 1 Se v n„o for um vetor numÈrico, aparece uma mensagem de erro e finaliza a funÁ„o.
-# 2 FaÁa n = o comprimento do vetor v
+# Entrada: um vetor num√©rico v
+# Sa√≠da: o vetor v na ordem inversa
+# Nome da Fun√ß√£o: OrdemInversa
+# 1 Se v n√£o for um vetor num√©rico, aparece uma mensagem de erro e finaliza a fun√ß√£o.
+# 2 Fa√ßa n = o comprimento do vetor v
 # 3 Se n=1, retorne v
-# 4 FaÁa w = vetor v excluindo o seu ˙ltimo elemento
+# 4 Fa√ßa w = vetor v excluindo o seu √∫ltimo elemento
 # 5 Retorne o vetor (v_n, OrdemInversa(w) )
 
 # b
 OrdemInversa = function(v){
-  if(class(v)!="numeric")stop("O argumento precisa ser um vetor n˙merico.")
+  if(class(v)!="numeric")stop("O argumento precisa ser um vetor n√∫merico.")
   n = length(v)
   if(n==1)return(v)
   w = v[-n]
@@ -214,8 +216,8 @@ OrdemInversa(c(2,3,4,5))
 # Q10
 # a
 MDC = function(x,y){
-  if( (y%%1!=0) || (y<0) || (class(y)!="numeric" && class(y)!="integer") )stop("o argumento precisa ser um n˙mero natural.")
-  if( (x%%1!=0) || (x<0) || (class(x)!="numeric" && class(x)!="integer") )stop("o argumento precisa ser um n˙mero natural.")
+  if( (y%%1!=0) || (y<0) || (class(y)!="numeric" && class(y)!="integer") )stop("o argumento precisa ser um n√∫mero natural.")
+  if( (x%%1!=0) || (x<0) || (class(x)!="numeric" && class(x)!="integer") )stop("o argumento precisa ser um n√∫mero natural.")
   a = min(x,y)
   b = max(x,y)
   if(a==0) return(b)
