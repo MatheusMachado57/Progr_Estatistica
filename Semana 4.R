@@ -1,9 +1,14 @@
 # Semana 4
 
-# Q1
-# a
+# Para todos os exercícios a seguir não se esqueça de:
+# • Verificar sempre se as entradas passadas pelo usuário são viáveis para os cálculos das funções.
+# • Inventar várias entradas para as funções implementadas a fim de verificar se elas estão funcionando corretamente.
+# • Sempre que possível chamar as funções já implementadas dentro de uma nova função. Assim você simplifica bastante seu código.
+
+# Q1 - Faça o que se pede sem usar as funções max e which.max do R.
+# a  - No computador implemente o algoritmo visto em sala de aula que recebe como entrada um vetor v e retorna o seu valor máximo.
 Maximo = function(v){
-  if(class(v)!="numeric") stop("Entre com um vetor de n�meros.")
+  if(class(v)!="numeric") stop("Entre com um vetor de números.")
   n     = length(v)
   max   = v[1]
   for (i in 2:n){    if(v[i]>max){max=v[i]}  }
@@ -18,12 +23,15 @@ Maximo(c(90,0,-2,8,90))
 
 Maximo(c(10,0,-2,8,"A"))
 
-# b
+# b - Em seu caderno escreva um pseudo-código para o algoritmo que recebe como
+# entrada um vetor v e retorna a posição onde se encontra o máximo. Nesse item
+# não é para usar o computador.
+
 # Entrada: v = vetor de numeros
 # Saida: posicao do maximo em v
 # 1 Defina n = tamanho do vetor v
-# 2 Defina maxi como sendo o valor m�ximo do vetor v
-# 3 Inicialize o vetor de posi��es do m�ximo, denotado por pmaxi
+# 2 Defina maxi como sendo o valor máximo do vetor v
+# 3 Inicialize o vetor de posições do máximo, denotado por pmaxi
 # 4 Inicialize o contador imaxi em 0. Este contador ira guardar a quantidade de vezes que o maximo aparece.
 # 5 Inicie i = 1
 # 6 Se v_i==maxi, j=j+1 e pmaxi = i
@@ -31,9 +39,11 @@ Maximo(c(10,0,-2,8,"A"))
 # 8 Se i<=n, volte para a linha 5
 # 9 Retorne pmaxi
 
-# c
+# c - Agora, novamente no computador, implemente uma nova função que executa o
+# pseudo-código elaborado no item 1b. Não use o mesmo nome da função implementada no item 1a.
+
 Pos_Maximo = function(v){
-  if(class(v)!="numeric") stop("Entre com um vetor de n�meros.")
+  if(class(v)!="numeric") stop("Entre com um vetor de números.")
   n      = length(v)
   maxi   = Maximo(v)
   pmaxi  = NULL
@@ -44,7 +54,8 @@ Pos_Maximo = function(v){
 Pos_Maximo(c(10,0,-2,8,90))
 Pos_Maximo(c(10,0,-2,8,90,90,90))
 
-# Q2
+# Q2 - Faça o que se pede sem usar as funções min e which.min do R.
+
 # a
 # Entrada: v = vetor de numeros
 # Saida: minimo em v
@@ -56,9 +67,9 @@ Pos_Maximo(c(10,0,-2,8,90,90,90))
 # 6 Se i<=n, volte para a linha 4
 # 7 Retorne min
 
-# b
+# b - Agora no computador implemente uma função que executa o pseudo-código elaborado do item 2a.
 Minimo = function(v){
-  if(class(v)!="numeric") stop("Entre com um vetor de n�meros.")
+  if(class(v)!="numeric") stop("Entre com um vetor de números.")
   n     = length(v)
   min   = v[1]
   for (i in 2:n){    if(v[i]<min){min=v[i]}  }
@@ -66,12 +77,15 @@ Minimo = function(v){
 }
 Minimo(c(10,0,-2,8,90))
 
-# c
+# c - De volta ao caderno escreva um pseudo-código para o algoritmo que recebe como
+# entrada um vetor v e retorna a posição onde se encontra o mínimo. Nesse item
+# não é para usar o computador.
+
 # Entrada: v = vetor de numeros
 # Saida: posicao do minimo em v
 # 1 Defina n = tamanho do vetor v
 # 2 Defina mini como sendo o valor minimo do vetor v
-# 3 Inicialize o vetor de posi��es do minimo, denotado por pmini
+# 3 Inicialize o vetor de posições do minimo, denotado por pmini
 # 4 Inicialize o contador imini em 0. Este contador ira guardar a quantidade de vezes que o minimo aparece.
 # 4 Inicie i = 1
 # 5 Se v_i==mini, j=j+1 e pmini = i
@@ -79,9 +93,10 @@ Minimo(c(10,0,-2,8,90))
 # 7 Se i<=n, volte para a linha 5
 # 8 Retorne pmini 
 
-# d
+# d - Novamente no computador implemente no uma nova função que executa o pseudo-código elaborado no item 2c. 
+# Não use o mesmo nome da função implementada no item 2b
 Pos_Minimo = function(v){
-  if(class(v)!="numeric") stop("Entre com um vetor de n�meros.")
+  if(class(v)!="numeric") stop("Entre com um vetor de números.")
   n      = length(v)
   mini   = Minimo(v)
   pmini  = NULL
@@ -94,7 +109,7 @@ Pos_Minimo(c(10,0,-2,8,90,-2))
 
 # Q3
 Media = function(v){
-  if(class(v)!="numeric") stop("Entre com um vetor de n�meros.")
+  if(class(v)!="numeric") stop("Entre com um vetor de números.")
   n     = length(v)
   soma  = 0
   for (i in 1:n){    soma = soma + v[i] }
@@ -106,7 +121,7 @@ mean(c(10,0,-2,8,90))
 
 # Q4
 Mediana = function(v){
-  if(class(v)!="numeric") stop("Entre com um vetor de n�meros.")
+  if(class(v)!="numeric") stop("Entre com um vetor de números.")
   n     = length(v)
   vtil  = sort(v)
   if(n%%2 != 0){mediana = vtil[(n+1)/2]} else{mediana = (vtil[n/2] + vtil[n/2+1])/2}
@@ -121,7 +136,7 @@ median(c(10,0,-2,8,90,6))
 # Q5
 # a
 Quartis_1 = function(v){
-  if(class(v)!="numeric") stop("Entre com um vetor de n�meros.")
+  if(class(v)!="numeric") stop("Entre com um vetor de números.")
   n     = length(v)
   vtil  = sort(v)
   if(n%%2==0){
@@ -156,7 +171,7 @@ Quartis_1(c(10,0,-2,8,90))
 
 # c
 Quartis_2 = function(v){
-  if(class(v)!="numeric") stop("Entre com um vetor de n�meros.")
+  if(class(v)!="numeric") stop("Entre com um vetor de números.")
   n     = length(v)
   vtil  = sort(v)
   if(n%%2==0){
@@ -180,7 +195,7 @@ quantile(c(10,0,-2,8,90),c(0.25,0.5,0.75))
 # Q6
 # a
 FreqsAbs = function(v){
-  if(class(v)!="numeric") stop("Entre com um vetor de n�meros.")
+  if(class(v)!="numeric") stop("Entre com um vetor de números.")
   n       = length(v)
   val     = NULL
   freq    = NULL
@@ -212,7 +227,7 @@ FreqsAbs(c(10,0,8,90,90,90,0))
 
 # b
 FreqsRel = function(v){
-  if(class(v)!="numeric") stop("Entre com um vetor de n�meros.")
+  if(class(v)!="numeric") stop("Entre com um vetor de números.")
   n       = length(v)
   v       = sort(v)
   val     = NULL
@@ -384,7 +399,7 @@ cov(v,w)
 # 8 Inicie a matriz de covariancias Mcov 
 # 9 Faca i = 1
 # 10 Faca j = 1
-# 11 Calcule Mcov[i,j] como sendo a covariancia da variavel i com a variavel j, isto �, dos dados na coluna i com os dados na coluna j
+# 11 Calcule Mcov[i,j] como sendo a covariancia da variavel i com a variavel j, isto é, dos dados na coluna i com os dados na coluna j
 # 12 Incremente j: j = j+1
 # 13 Se j<=k, volte para a linha 11
 # 14 Incremente i: i = i+1
