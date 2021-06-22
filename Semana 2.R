@@ -144,7 +144,7 @@ M
 
 # Q5 - Usando os loops vistos em sala de aula crie as listas definidas em cada item a seguir.
 
-# a - L1 ´e uma lista com 10 posi¸c˜oes tal que cada posi¸c˜ao i dessa lista guarda o n´umero i.
+# a - L1 é uma lista com 10 posições tal que cada posição i dessa lista guarda o número i.
 u = NULL
 for(i in 1:10){u = c(u,i)}
 L1 = as.list(u)
@@ -155,7 +155,7 @@ L1 = list()
 for(i in 1:10){L1[[i]] = i}
 length(L1)
 
-# b - L2 ´e uma lista com 10 posi¸c˜oes tal que cada posi¸c˜ao i dessa lista guarda um vetor de tamanho i com todas as posi¸c˜oes iguais a 1.
+# b - L2 é uma lista com 10 posições tal que cada posição i dessa lista guarda um vetor de tamanho i com todas as posições iguais a 1.
 L2=list()
 for(i in 1:10){
   v=NULL
@@ -164,7 +164,7 @@ for(i in 1:10){
 }
 L2
 
-# c - L3 ´e uma lista com 10 posi¸c˜oes tal que cada posi¸c˜ao i dessa lista guarda um vetor com os 10 primeiros m´ultiplos de i.
+# c - L3 é uma lista com 10 posições tal que cada posição i dessa lista guarda um vetor com os 10 primeiros múltiplos de i.
 L3 = list()  
 for(i in 1:10){
   v = NULL
@@ -173,7 +173,7 @@ for(i in 1:10){
 }
 L3
 
-# d - L4 ´e uma lista com 10 posi¸c˜oes tal que cada posi¸c˜ao i dessa lista guarda um vetor com os i primeiros m´ultiplos de 2.
+# d - L4 é uma lista com 10 posiçõoes tal que cada posição i dessa lista guarda um vetor com os i primeiros múltiplos de 2.
 L4 = list()
 for(i in 1:10){
   v = NULL
@@ -182,7 +182,7 @@ for(i in 1:10){
 }
 L4
 
-# e
+# e - L5 é uma lista com 10 posições tal que cada posição i dessa lista guarda a matriz identidade de tamanho i×i.
 L5 = list()
 for(i in 1:10){
   L5[[i]] = matrix(0,i,i)
@@ -190,28 +190,31 @@ for(i in 1:10){
 }
 L5
 
-# Q6
-# a
+# Q6 - Usando as listas L1 e L3 do exercício 2.5, faça o que se pede.
+# a - Encontre o valor da soma de todos os números guardados em L1.
 l = length(L1)
 soma = 0
 for(i in 1:l){soma = soma + sum(L1[[i]])} 
 soma
 
-# b
+# b - Encontre o vetor definido pela soma de todos os vetores guardados em L3.
 l = length(L3)
 soma = 0
 for(i in 1:l){soma = soma + sum(L3[[i]])} 
 soma
 
-# Q7
-# a
+# Q7 - Usando a lista L4 do exercício 2.5, faça o que se pede.
+# a - Crie um vetor soma tal que a sua posição i guarda a soma dos elementos do vetor alocado na posição i da lista L4.
 soma = NULL
 for(i in 1:10){
   soma[i] = sum(L4[[i]])
 }
 soma
 
-# b
+# b - Crie um vetor v de character tal que a sua posição i guarda o objeto soma[i]
+# concatenado com "é um múltiplo de 5" se a o valor da posição i do vetor soma
+# for um múltiplo de 5. Caso contrário guarde na posição i de v o objeto soma[i]
+# concatenado com "não ´e um múltiplo de 5". Para concatenar textos use o comando paste.
 v = NULL
 for(i in 1:10){
   u = soma[i] %% 5
@@ -221,7 +224,11 @@ for(i in 1:10){
 }
 v
 
-# c
+# c - A partir do vetor soma ou do vetor v criados nos itens anteriores conte o número
+# de vetores da lista L4 tais que a sua soma é um número múltiplos de 5. Não é
+# para você visualizar soma ou v e contar, e sim para usar um loop e um contador
+# para realizar essa conta.
+
 n = 0
 for(i in 1:10){
   u = soma[i] %% 5
@@ -229,8 +236,14 @@ for(i in 1:10){
 }
 n
 
-# Q8
-# a
+# Q8 - Uma progressão aritmética (p.a.) é uma sequência numérica em que cada termo, a
+# partir do segundo, é igual à soma do termo anterior com uma constante r. O número
+# r é chamado de razão. O primeiro termo da sequência será chamado de x0.
+
+# a - Faça um código em R que determine os 100 primeiros termos da progressão
+# aritmética cuja termo inicial é x0 = 2 e a razão é r = 3. Vamos chamar o vetor
+# com os elementos dessa sequência de y.
+
 x0 = 2
 r  = 3
 y  = x0
@@ -241,7 +254,12 @@ for(i in 1:100){
 }
 y
 
-# b
+# Depois que y estiver construído:
+
+# b - Faça um código que determine a soma dos 35 primeiros termos dessa sequência.
+# Compare o valor encontrado com o valor fornecido pela fórmula da soma de uma
+# p.a.. Você lembra dessa fórmula?
+
 soma = 0
 for(i in 1:35){soma = soma + y[i]}
 soma
@@ -249,7 +267,8 @@ soma
 n1=35
 (y[1]+y[n1])*n1/2
 
-# c
+# c - Faça um código que conte um número de elementos em y múltiplos de 4 
+# (lembre do comando %% visto na semana passada, que fornece o resto da divisão).
 soma = 0
 for(i in 1:100){
   u = y[i]%%4
@@ -257,7 +276,7 @@ for(i in 1:100){
 }
 soma
 
-# d
+# d - Faça um código que conte um número de elementos em y múltiplos de 4 e múltiplos de 5 simultaneamente.
 soma = 0
 for(i in 1:100){
   u = y[i]%%4
@@ -266,7 +285,7 @@ for(i in 1:100){
 }
 soma
 
-# e
+# e - Faça um código que conte um número de elementos em y múltiplos de 4 ou múltiplos de 5.
 soma = 0
 for(i in 1:100){
   u = y[i]%%4
@@ -275,7 +294,9 @@ for(i in 1:100){
 }
 soma
 
-# f
+# f - Vamos agora criar uma nova sequência x a partir da sequência y da seguinte maneira: 
+# cada termo par da sequencia y será mantido e os termos ímpares serão substituídos por 0. 
+# Faça um código que gere a sequência x assim definida.
 x = y
 for(i in 1:100){
   u = x[i]%%2
