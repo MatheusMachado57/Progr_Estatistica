@@ -1,9 +1,12 @@
 # Semana 9
-# Q1
 
-# a
+# Q1 - Considere os algoritmos a seguir. Para cada um deles encontre a sua ordem de complexidade. 
+# Justifique a sua resposta. Se quiser, implemente os algoritmos para facilitar a sua análise.
+
+# a - Algoritmo não recursivo que retorna a soma dos elementos de um vetor de tamanho n passado como entrada.
+
 # complexidade linear - O(n) pois para fazer a soma do vetor, o algoritmo
-# precisa percorrer o vetor e ir acumulando a soma. Para percorrer o vetor h� 
+# precisa percorrer o vetor e ir acumulando a soma. Para percorrer o vetor há 
 # um gasto de tamanho n = tamanho do vetor.
 SomaVetor = function(v){
   soma    = 0
@@ -31,9 +34,10 @@ plot(n, tgasto_a,ylab="Tempo",xlab="n", type="l",
 cte = tgasto_a[length(n)]/n[length(n)]
 lines(n,n*cte,col="red", lwd=2)
 
-# b
+# b - Algoritmo recursivo que retorna a soma dos elementos de um vetor de tamanho n passado como entrada.
+
 # complexidade linear - O(n) pois para fazer a soma do vetor, o algoritmo
-# precisa percorrer o vetor e ir acumulando a soma. Para percorrer o vetor h� 
+# precisa percorrer o vetor e ir acumulando a soma. Para percorrer o vetor há 
 # um gasto de tamanho n = tamanho do vetor.
 
 SomaVetorR = function(v){
@@ -56,7 +60,8 @@ for(i in 1:length(n)){
 plot(n, tgasto_b,ylab="Tempo",xlab="n", type="l",
      lwd=2,bty="n",cex.lab=1.4,cex.axis=1.4)
 
-# c
+# c - Algoritmo não recursivo que retorna a soma dos elementos de uma matriz de tamanho n × n passada como entrada.
+
 # complexidade quadratica pois ha 2 loops, um dentro do outro.
 SomaMatriz = function(A,B){
   l = nrow(A)
@@ -89,7 +94,8 @@ plot(n, tgasto_c,ylab="Tempo",xlab="n", type="l",
 cte = tgasto_c[length(n)]/(n[length(n)]^2)
 lines(n,n^2*cte,col="red", type="l",lwd=2)
 
-# d
+# d - Algoritmo não recursivo que busca a posição de um elementos passado como entrada em uma matriz de tamanho n × n também passada como entrada.
+
 # complexidade quadratica pois ha 2 loops, um dentro do outro.
 BuscaMatriz = function(A,k){
   l = nrow(A)
@@ -120,10 +126,11 @@ plot(n, tgasto_d,ylab="Tempo",xlab="n", type="l",
 cte = tgasto_d[length(n)]/(n[length(n)]^2)
 lines(n,n^2*cte,col="red", type="l", lwd=2)
 
-# e
+# e - Algoritmo não recursivo que fornece o produto interno entre dois vetores de tamanho n passados como entrada.
+
 # complexidade linear pois ha um loop
 Prod_int = function(v,u){
-  if( (class(v)!="numeric") || (class(u)!="numeric") )stop("Os argumentos precisam ser vetores num�ricos.")
+  if( (class(v)!="numeric") || (class(u)!="numeric") )stop("Os argumentos precisam ser vetores numéricos.")
   n = length(v)
   m = length(u)
   if(n!=m)stop("Os vetores precisam ter o mesmo tamanho.")
@@ -149,7 +156,8 @@ plot(n, tgasto_e,ylab="Tempo",xlab="n", type="l",
 cte = tgasto_e[length(n)]/n[length(n)]
 lines(n,n*cte,col="red", type="l", lwd=2)
 
-# f
+# f - Algoritmo não recursivo que fornece o produto entre uma matriz de tamanho n × n e um vetor de tamanho n passados como entrada.
+
 # complexidade quadratica pois ha 2 loops, um dentro do outro.
 Produto_Av = function(A,v){
   if(class(A)!="matrix") stop("O primeiro argumento deve ser uma matriz.")
@@ -157,7 +165,7 @@ Produto_Av = function(A,v){
   n = nrow(A)
   m = ncol(A)
   k = length(v)
-  if(k!=m)stop("O tamanho do vetor precisa ser igual ao n�mero de colunas da matriz.")
+  if(k!=m)stop("O tamanho do vetor precisa ser igual ao número de colunas da matriz.")
   w = NULL
   for(i in 1:n){
     ai = A[i,]
@@ -184,7 +192,7 @@ plot(n, tgasto_f,ylab="Tempo",xlab="n", type="l",
 cte = tgasto_f[length(n)]/(n[length(n)]^2)
 lines(n,n^2*cte,col="red", type="l", lwd=2)
 
-# g
+# g - Algoritmo não recursivo que verifica se uma matriz de tamanho n × n passada como entrada é simétrica ou não.
 EhSimetrica = function(A){
   if(class(A)!="matrix") stop("O argumento deve ser uma matriz.")
   n = nrow(A)
@@ -215,7 +223,7 @@ plot(n, tgasto_g,ylab="Tempo",xlab="n", type="l",
 cte = tgasto_g[length(n)]/(n[length(n)]^2)
 lines(n,n^2*cte,col="red", type="l", lwd=2)
 
-# h
+# h - Algoritmo recursivo que retorna todas as permutações de um array de tamanho n passado como entrada (ex. 7.12)
 Permutacoes = function(dados){
   n = length(dados)
   if(n==1){return(dados)}
@@ -242,22 +250,24 @@ plot(n, tgasto_h,ylab="Tempo",xlab="n", type="l",
      lwd=2,bty="n",cex.lab=1.4,cex.axis=1.4)
 
 
-# Q2
-# a
+# Q2 - Considere os dois pseudo-códigos a seguir. 
+# Ambos recebem como entrada um número natural n e retorna o n-ésimo termo da sequência xn = 2xn−1 + n, com x0 = 1.
+
+# a - Implemente cada um dos pseudo-c´odigos acima no R.
 Seq1 = function(n){
-  if( (length(n)>1) || (n%%1!=0) || (n<0) ) stop("Entre com um n�mero natural")
+  if( (length(n)>1) || (n%%1!=0) || (n<0) ) stop("Entre com um número natural")
   if(n==0) return (1)
   return(2*Seq1(n-1) + n)
 }
 
 Seq2 = function(n){
-  if( (length(n)>1) || (n%%1!=0) || (n<0) ) stop("Entre com um n�mero natural")
+  if( (length(n)>1) || (n%%1!=0) || (n<0) ) stop("Entre com um número natural")
   if(n==0) return (1)
   return(Seq2(n-1)+Seq2(n-1) + n)
   
 }
 
-# b
+# b - Teste as duas implementações para n = 15. Percebeu alguma diferen¸ca no tempo de execução?
 n = 15
 tinicial = Sys.time()
 Seq1(n)
@@ -269,7 +279,11 @@ Seq2(n)
 tfinal = Sys.time()
 tfinal-tinicial
 
-# c
+# c - Vamos agora fazer um gráfico dos tempos de execução em função do valor de
+# entrada em cada função. Para isso use os comandos plot e Sys.time(), este
+# último retorna o instante de tempo em que o comando foi chamada. Analise os
+# gráficos gerados e deduza a ordem de complexidade de cada uma das implementações.
+# OBS: Veja uma sugestâo de código para o gráfico no final desta lista.
 x11()
 tgasto = NULL
 for(i in 1:20){
@@ -299,11 +313,13 @@ plot(seq(1,20,by=1),tgasto, xlab="n",ylab="tempo",main="Seq1")
 plot(seq(1,20,by=1),tgasto2, xlab="n",ylab="tempo",main="Seq2")    
 
 par(mfrow=c(1,1))    
-plot(1:20, tgasto2-tgasto, xlab="n",ylab="diferen�a entre os tempos",main="Seq2 - Seq1")
+plot(1:20, tgasto2-tgasto, xlab="n",ylab="diferença entre os tempos",main="Seq2 - Seq1")
 
-# Q3
+# (d) O que tem de diferente nas duas implementações para uma ser tão mais demorada que a outra?
+
+# Q3 - Fibonacci com Recursão:
 Fibonacci = function(n){
-  if( (n%%1!=0) || (n<=0) || (class(n)!="numeric" && class(n)!="integer") )stop("o argumento precisa ser um n�mero natural.")
+  if( (n%%1!=0) || (n<=0) || (class(n)!="numeric" && class(n)!="integer") )stop("o argumento precisa ser um número natural.")
   if((n==1) || (n==2)){return(1)} 
   return(Fibonacci(n-1)+Fibonacci(n-2))
 }
@@ -444,8 +460,8 @@ for(i in 1:length(x)){
 
 par(mfrow=c(2,2))    
 plot(n,tgastoO, xlab="n",ylab="tempo",main="Bolha")    
-plot(n,tgastoO2, xlab="n",ylab="tempo", main="R�pida")    
-plot(n,tgastoO2-tgastoO, xlab="n",ylab="tempo",main="R�pida - Bolha")    
+plot(n,tgastoO2, xlab="n",ylab="tempo", main="Rápida")    
+plot(n,tgastoO2-tgastoO, xlab="n",ylab="tempo",main="Rápida - Bolha")    
 
 # Medindo o tempo gasto
 ######################################
@@ -460,7 +476,7 @@ h = NULL
 # inicializando o relogio
 ptm = proc.time()    
 
-#somando um ao elemento g_i atrav�s de um loop
+#somando um ao elemento g_i através de um loop
 for (i in 1:100000){
   h[i] = g[i] + 1
 }
