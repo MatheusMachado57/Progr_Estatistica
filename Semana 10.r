@@ -1,6 +1,12 @@
+
+# 10.1 A partir da Equação 10.1 encontre uma aproximações para e1 e e3 usando n = 4. 
+# FaÇa as contas na mão.
+
 #10.2
 
-#a
+# a - Implemente uma função que recebe como entrada x ∈ R e n ∈ N e retorna o polinômio Pn i=0 x i i!
+# avaliado em x. Vamos chamar essa função de pol_exp(x,n).
+
 pol_exp <- function(x,n){
   soma <- 0
   fac <- 1
@@ -11,7 +17,18 @@ pol_exp <- function(x,n){
   return(soma)
 }
 
-#b
+# b - Digite o código a seguir para ver como esse polinômio se aproxima da função exponencial conforme seu grau cresce.
+
+# > plot(exp,-4,4)
+# > grid()
+# > segments(x0=0,y0=0,x1=0,y1=150,lty=2)
+# > curve(pol_exp(x,n=2),add=T,col="violet")
+# > curve(pol_exp(x,n=3),add=T,col="red")
+# > curve(pol_exp(x,n=4),add=T,col="blue")
+# > curve(pol_exp(x,n=5),add=T,col="green")
+
+# Veja que a aproximação melhora quanto mais perto de 0 for o ponto avaliado ou quando maior for o valor de n.
+
 plot(exp,-4,4)
 grid()
 segments(x0=0,y0=0,x1=0,y1=150,lty=2)
@@ -21,6 +38,8 @@ curve(pol_exp(x,n=4),add=T,col="blue")
 curve(pol_exp(x,n=5),add=T,col="green")
 
 #10.3
+
+# a) Implemente o pseudocódigo visto em sala de aula que recebe como entrada x ∈ R e um erro e retorna uma aproximação para e^x.
 
 f <- function(x,er){
   fa <- 1
